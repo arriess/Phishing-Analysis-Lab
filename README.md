@@ -2,7 +2,7 @@
 
 Hands-on SOC portfolio project focused on **phishing triage, email-header analysis, IOC extraction, URL/domain investigation, threat assessment, MITRE ATT&CK mapping, and incident-response documentation**.
 
-> **Current status:** Investigation 001 completed using a controlled credential-phishing simulation. Investigations 002 and 003 remain planned.
+> **Current status:** Investigations 001 and 002 completed using controlled training simulations. Investigation 003 remains planned.
 
 ## Objective
 
@@ -26,7 +26,7 @@ The goal of this project is to demonstrate a repeatable SOC workflow for investi
 | Investigation | Focus | Status |
 |---|---|---|
 | **001 — Credential Phishing Analysis** | Header review, sender validation, suspicious-link triage, IOC extraction, analyst verdict | ✅ Completed |
-| **002 — Suspicious Link Analysis** | URL structure, redirect context, domain/DNS analysis, risk assessment | 🟡 Planned |
+| **002 — Suspicious Link Analysis** | URL structure, redirect context, domain/DNS analysis, risk assessment | ✅ Completed |
 | **003 — Business Email Compromise Scenario** | Display-name spoofing, social-engineering indicators, payment-request triage | 🟡 Planned |
 
 ## Investigation 001 Highlights
@@ -42,6 +42,20 @@ Documentation:
 - [`investigations/001-credential-phishing-analysis.md`](investigations/001-credential-phishing-analysis.md)
 - [`iocs/001-credential-phishing-iocs.md`](iocs/001-credential-phishing-iocs.md)
 - [`samples/001-credential-phishing-simulated.eml`](samples/001-credential-phishing-simulated.eml)
+
+## Investigation 002 Highlights
+
+The second investigation analyzed a deliberately constructed suspicious authentication link with an encoded redirect, a staged Microsoft 365-themed destination, user-specific query parameters, and simulated DNS mappings using documentation-only IP addresses.
+
+**Final classification:** Suspicious / Credential-Phishing Link Simulation  
+**Severity:** Medium  
+**MITRE ATT&CK:** T1566.002 — Phishing: Spearphishing Link
+
+Documentation:
+
+- [`investigations/002-suspicious-link-analysis.md`](investigations/002-suspicious-link-analysis.md)
+- [`iocs/002-suspicious-link-iocs.md`](iocs/002-suspicious-link-iocs.md)
+- [`samples/002-suspicious-link-simulated.txt`](samples/002-suspicious-link-simulated.txt)
 
 ## End-to-End Analyst Workflow
 
@@ -78,12 +92,14 @@ Phishing-Analysis-Lab/
 │   └── 003-business-email-compromise.md
 ├── iocs/
 │   ├── README.md
-│   └── 001-credential-phishing-iocs.md
+│   ├── 001-credential-phishing-iocs.md
+│   └── 002-suspicious-link-iocs.md
 ├── playbooks/
 │   └── phishing-response-playbook.md
 ├── samples/
 │   ├── README.md
-│   └── 001-credential-phishing-simulated.eml
+│   ├── 001-credential-phishing-simulated.eml
+│   └── 002-suspicious-link-simulated.txt
 └── screenshots/
     └── README.md
 ```
