@@ -1,0 +1,17 @@
+SIMULATED SUSPICIOUS LINK SAMPLE — TRAINING ONLY
+
+Initial URL:
+https://secure-sharepoint-login.example/auth?redirect=https%3A%2F%2Fm365-session-check.example%2Fsignin&user=employee%40soc-lab.example
+
+Simulated redirect destination:
+https://m365-session-check.example/signin?continue=%2Faccount%2Fverify&case=TRAINING-002
+
+Simulated DNS context:
+secure-sharepoint-login.example -> 198.51.100.44
+m365-session-check.example -> 203.0.113.25
+
+Notes:
+- All domains use the reserved .example namespace.
+- 198.51.100.0/24 is TEST-NET-2 and 203.0.113.0/24 is TEST-NET-3.
+- No live malicious infrastructure, credentials, tokens, malware, or third-party systems are involved.
+- The redirect chain is deliberately constructed for SOC portfolio training.
