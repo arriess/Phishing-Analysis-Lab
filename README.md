@@ -44,6 +44,7 @@ Documentation:
 - [`investigations/001-credential-phishing-analysis.md`](investigations/001-credential-phishing-analysis.md)
 - [`iocs/001-credential-phishing-iocs.md`](iocs/001-credential-phishing-iocs.md)
 - [`samples/001-credential-phishing-simulated.eml`](samples/001-credential-phishing-simulated.eml)
+- [`screenshots/001-credential-phishing-evidence.svg`](screenshots/001-credential-phishing-evidence.svg)
 
 ## Investigation 002 Highlights
 
@@ -58,6 +59,7 @@ Documentation:
 - [`investigations/002-suspicious-link-analysis.md`](investigations/002-suspicious-link-analysis.md)
 - [`iocs/002-suspicious-link-iocs.md`](iocs/002-suspicious-link-iocs.md)
 - [`samples/002-suspicious-link-simulated.txt`](samples/002-suspicious-link-simulated.txt)
+- [`screenshots/002-suspicious-link-evidence.svg`](screenshots/002-suspicious-link-evidence.svg)
 
 ## Investigation 003 Highlights
 
@@ -74,6 +76,15 @@ Documentation:
 - [`investigations/003-business-email-compromise.md`](investigations/003-business-email-compromise.md)
 - [`iocs/003-bec-executive-impersonation-iocs.md`](iocs/003-bec-executive-impersonation-iocs.md)
 - [`samples/003-bec-executive-impersonation-simulated.eml`](samples/003-bec-executive-impersonation-simulated.eml)
+- [`screenshots/003-bec-evidence.svg`](screenshots/003-bec-evidence.svg)
+
+## Portfolio Evidence
+
+The `screenshots/` directory contains three sanitized visual case cards summarizing the completed investigations. Each card is explicitly labeled **SIMULATED TRAINING EVIDENCE** so that synthetic exercises are not presented as production incident screenshots.
+
+- [Investigation 001 evidence](screenshots/001-credential-phishing-evidence.svg)
+- [Investigation 002 evidence](screenshots/002-suspicious-link-evidence.svg)
+- [Investigation 003 evidence](screenshots/003-bec-evidence.svg)
 
 ## End-to-End Analyst Workflow
 
@@ -121,7 +132,10 @@ Phishing-Analysis-Lab/
 │   ├── 002-suspicious-link-simulated.txt
 │   └── 003-bec-executive-impersonation-simulated.eml
 └── screenshots/
-    └── README.md
+    ├── README.md
+    ├── 001-credential-phishing-evidence.svg
+    ├── 002-suspicious-link-evidence.svg
+    └── 003-bec-evidence.svg
 ```
 
 ## Evidence Standard
