@@ -2,7 +2,7 @@
 
 Hands-on SOC portfolio project focused on **phishing triage, email-header analysis, IOC extraction, URL/domain investigation, threat assessment, MITRE ATT&CK mapping, and incident-response documentation**.
 
-> **Current status:** Lab structure initialized. Investigations remain planned until controlled analysis is completed and validated.
+> **Current status:** Investigation 001 completed using a controlled credential-phishing simulation. Investigations 002 and 003 remain planned.
 
 ## Objective
 
@@ -21,13 +21,27 @@ The goal of this project is to demonstrate a repeatable SOC workflow for investi
 - SOC Triage
 - Security Documentation
 
-## Planned Investigations
+## Investigations
 
 | Investigation | Focus | Status |
 |---|---|---|
-| **001 — Credential Phishing Analysis** | Header review, sender validation, suspicious-link triage, IOC extraction, analyst verdict | 🟡 Planned |
+| **001 — Credential Phishing Analysis** | Header review, sender validation, suspicious-link triage, IOC extraction, analyst verdict | ✅ Completed |
 | **002 — Suspicious Link Analysis** | URL structure, redirect context, domain/DNS analysis, risk assessment | 🟡 Planned |
 | **003 — Business Email Compromise Scenario** | Display-name spoofing, social-engineering indicators, payment-request triage | 🟡 Planned |
+
+## Investigation 001 Highlights
+
+The first investigation analyzed a deliberately constructed Microsoft 365 credential-phishing simulation. The analyst workflow identified sender/reply-path mismatches, simulated SPF/DMARC failures, missing DKIM, urgency and account-loss language, and a Microsoft-themed verification URL using reserved lab infrastructure.
+
+**Final classification:** Credential Phishing — Simulated / Authorized Lab  
+**Severity:** Medium  
+**MITRE ATT&CK:** T1566.002 — Phishing: Spearphishing Link
+
+Documentation:
+
+- [`investigations/001-credential-phishing-analysis.md`](investigations/001-credential-phishing-analysis.md)
+- [`iocs/001-credential-phishing-iocs.md`](iocs/001-credential-phishing-iocs.md)
+- [`samples/001-credential-phishing-simulated.eml`](samples/001-credential-phishing-simulated.eml)
 
 ## End-to-End Analyst Workflow
 
@@ -63,18 +77,20 @@ Phishing-Analysis-Lab/
 │   ├── 002-suspicious-link-analysis.md
 │   └── 003-business-email-compromise.md
 ├── iocs/
-│   └── README.md
+│   ├── README.md
+│   └── 001-credential-phishing-iocs.md
 ├── playbooks/
 │   └── phishing-response-playbook.md
 ├── samples/
-│   └── README.md
+│   ├── README.md
+│   └── 001-credential-phishing-simulated.eml
 └── screenshots/
     └── README.md
 ```
 
 ## Evidence Standard
 
-Each completed investigation will document:
+Each completed investigation documents:
 
 1. Initial alert or user-report context
 2. Email metadata and authentication observations
