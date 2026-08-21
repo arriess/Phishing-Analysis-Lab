@@ -1,0 +1,38 @@
+From: Martin Keller - CEO <martin.keller@executive-mail.example>
+Reply-To: Martin Keller <mkeller.direct@consultant-mail.example>
+Return-Path: <martin.keller@executive-mail.example>
+To: Accounts Payable <finance@soc-lab.example>
+Date: Fri, 21 Aug 2026 14:40:00 +0000
+Message-ID: <training-bec-003@mail.executive-mail.example>
+Subject: Confidential: urgent supplier payment today
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+Received: from mail.executive-mail.example (mail.executive-mail.example [203.0.113.90])
+        by training-gateway.example with ESMTPS id TRAINING-BEC-003
+        for <finance@soc-lab.example>; Fri, 21 Aug 2026 14:40:04 +0000
+Authentication-Results: training-gateway.example;
+        spf=pass smtp.mailfrom=executive-mail.example;
+        dkim=pass header.d=executive-mail.example;
+        dmarc=pass header.from=executive-mail.example
+
+Hi,
+
+I need you to handle a confidential supplier payment before 16:00 today.
+
+Please transfer EUR 48,750 to the new beneficiary details below. The supplier changed banks this morning and the invoice must be settled today to avoid delaying the project.
+
+Do not contact the supplier yet because the change is part of a confidential negotiation. I am in meetings, so reply directly to this email once the transfer has been initiated.
+
+Beneficiary: SOC-LAB Vendor Services
+IBAN: TRAINING-ONLY-NO-REAL-ACCOUNT
+Reference: PROJECT-ALPHA-003
+
+I need this completed urgently.
+
+Martin Keller
+Chief Executive Officer
+SOC-LAB Industries GmbH
+
+---
+TRAINING SAMPLE ONLY
+All identities, organizations, domains, payment details, and infrastructure are fictitious or reserved for documentation. No real company, executive, bank account, or third party is involved.
