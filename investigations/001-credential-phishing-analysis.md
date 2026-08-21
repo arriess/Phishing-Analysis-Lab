@@ -1,11 +1,13 @@
 # Investigation 001 — Credential Phishing Analysis
 
-**Status:** 🟠 In Progress  
-**Scenario type:** Simulated / Benign Training Sample
+**Status:** ✅ Completed  
+**Scenario type:** Simulated / Benign Training Sample  
+**Severity:** Medium  
+**Final classification:** Credential Phishing — Simulated / Authorized Lab
 
 ## Objective
 
-Investigate a simulated credential-phishing email using a repeatable SOC triage workflow. The final report will document sender/header observations, suspicious-link analysis, extracted indicators, analyst reasoning, MITRE ATT&CK mapping where justified, severity, and response recommendations.
+Investigate a simulated credential-phishing email using a repeatable SOC triage workflow and document sender/header observations, suspicious-link analysis, extracted indicators, analyst reasoning, MITRE ATT&CK mapping, severity, and response recommendations.
 
 ## Sample
 
@@ -34,28 +36,102 @@ The sample contains the following simulated authentication results:
 
 These results increase suspicion when combined with the domain mismatch and social-engineering language.
 
-### Initial assessment
+## URL Analysis
 
-The message exhibits multiple classic credential-phishing indicators: impersonation of a trusted brand, urgency, account-loss pressure, mismatched sender/Reply-To/link domains, and failed email-authentication checks.
+Suspicious training URL:
 
-At this stage, the message should be treated as **suspicious / likely phishing** pending completion of URL and IOC analysis.
+```text
+https://login-microsoft.example/verify?session=TRAINING-001
+```
 
-## Planned Next Analysis
+The URL was analyzed structurally only; no live malicious content was accessed.
 
-- Inspect the suspicious URL structure safely
-- Extract and document sanitized IOCs
-- Assess social-engineering techniques
-- Map supported behavior to MITRE ATT&CK
-- Determine final severity and classification
-- Recommend containment and user-response actions
+### Findings
 
-## Evidence
+- Hostname uses Microsoft-themed wording to imitate a trusted service.
+- Link domain does not match the visible sender domain or Reply-To domain.
+- `/verify` supports the account-verification pretext.
+- `session=TRAINING-001` is a synthetic training parameter, not a real token.
+- The `.example` namespace confirms that this is non-production lab infrastructure.
 
-Evidence will be added only after the controlled investigation is completed. Any public screenshot will be sanitized before publication.
+## IOC Extraction
 
-## Analyst Verdict
+The investigation produced a sanitized IOC set documented here:
 
-**Provisional:** Likely credential phishing — final verdict pending URL/IOC analysis.
+[`iocs/001-credential-phishing-iocs.md`](../iocs/001-credential-phishing-iocs.md)
+
+Key indicator categories include:
+
+- Visible sender domain
+- Reply-To domain
+- Return-Path domain
+- Link domain
+- Synthetic sending host and TEST-NET source IP
+- Authentication failures
+- Verification-themed URL path and training parameter
+
+## Social-Engineering Assessment
+
+The message combines several common phishing techniques:
+
+- Trusted-brand impersonation
+- Urgency and time pressure
+- Threat of account suspension
+- Fear of losing access
+- Credential-verification pretext
+- Mismatched sender, reply-path, and link domains
+
+The combination is designed to encourage rapid user action before the recipient verifies the message independently.
+
+## MITRE ATT&CK Mapping
+
+### T1566.002 — Phishing: Spearphishing Link
+
+The simulated email delivers a link intended to direct the recipient toward a credential-verification flow. The project does **not** claim that credential theft occurred, because no credentials were entered or collected in this lab.
+
+## Analyst Assessment
+
+### Evidence supporting phishing classification
+
+- Microsoft-themed impersonation
+- Sender / Reply-To / Return-Path inconsistencies
+- Link-domain mismatch
+- SPF failure
+- No DKIM signature
+- DMARC failure
+- Urgent account-suspension language
+- Verification-themed call to action
+
+### False-positive considerations
+
+A legitimate security message can contain urgent language, and some legitimate senders can experience authentication or forwarding issues. However, the combined domain mismatches, failed authentication, brand impersonation, and verification link make a benign interpretation unlikely in this constructed scenario.
+
+## Severity
+
+**Medium**
+
+Rationale: the message is designed to obtain account credentials and would require prompt containment in a real environment. No user interaction, credential submission, account compromise, or malware execution occurred in this controlled lab, so the investigation does not claim confirmed impact.
+
+## Response Recommendations
+
+For an equivalent real-world case, a SOC analyst should:
+
+1. Quarantine or remove the message from affected mailboxes.
+2. Block confirmed malicious sender, reply-to, and URL/domain indicators according to organizational policy.
+3. Search the mail environment for additional recipients of the same campaign.
+4. Determine whether any user clicked the link or submitted credentials.
+5. If credentials may have been exposed, reset the password, revoke active sessions/tokens, and verify MFA status.
+6. Review authentication logs for suspicious sign-ins after the email was delivered.
+7. Notify affected users and document the incident.
+8. Escalate if account compromise, lateral movement, or additional malicious activity is identified.
+
+## Final Verdict
+
+**Credential Phishing — Simulated / Authorized Lab**
+
+The email is classified as phishing based on brand impersonation, authentication failures, sender/reply-path mismatches, a suspicious verification link, and strong urgency/account-loss social engineering.
+
+No live malicious infrastructure was contacted and no credential compromise occurred.
 
 ## Ethics
 
