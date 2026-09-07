@@ -6,7 +6,7 @@
 
 ## Objective
 
-Analyze a simulated suspicious URL from a SOC perspective using safe, non-interactive methods. The investigation focuses on URL structure, domain context, redirect behavior, DNS observations, IOC extraction, analyst risk assessment, and response recommendations.
+Analyze a simulated suspicious URL from a SOC perspective using safe, non-interactive methods. The investigation focuses on URL structure, domain context, constructed redirect behavior, provided DNS context, IOC extraction, analyst risk assessment, and response recommendations.
 
 ## Sample
 
@@ -62,7 +62,9 @@ Indicators observed:
 
 This is consistent with a simulated credential-harvesting flow designed to keep the user inside a convincing login narrative.
 
-## DNS Context
+## Provided DNS Context
+
+The training sample assigns the following documentation-only addresses. These values were supplied as part of the scenario; they are not live DNS-query results.
 
 The lab uses documentation-only IP addresses:
 

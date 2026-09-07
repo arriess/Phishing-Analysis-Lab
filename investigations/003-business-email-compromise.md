@@ -22,15 +22,17 @@ The sample uses fictitious identities, reserved `.example` domains, TEST-NET inf
 - Reply-To uses a different domain: `consultant-mail.example`.
 - The message is addressed to Accounts Payable and requests a direct financial action.
 
-### Email authentication
+### Declared email-authentication results
 
-The synthetic sample reports:
+The synthetic `Authentication-Results` header declares:
 
 - SPF: **pass**
 - DKIM: **pass**
 - DMARC: **pass**
 
-These results show that the sender controls the sending domain, but they do **not** prove that the sender is the executive being impersonated. This is an important BEC triage lesson: successful authentication does not make a socially engineered message trustworthy.
+The committed file contains no `DKIM-Signature` header and uses reserved domains, so these declared results cannot be independently or cryptographically verified from the sample. They are scenario inputs used to demonstrate an important BEC triage lesson: even genuinely successful domain authentication would not prove that the sender is the executive being impersonated.
+
+The reproducible parser output records this limitation in [`artifacts/003-bec-parsed.json`](../artifacts/003-bec-parsed.json).
 
 ## Social-Engineering Indicators
 

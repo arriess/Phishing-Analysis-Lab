@@ -1,0 +1,20 @@
+{
+  "source_file": "003-bec-executive-impersonation-simulated.eml",
+  "headers": {
+    "From": "Martin Keller - CEO <martin.keller@executive-mail.example>",
+    "Reply-To": "Martin Keller <mkeller.direct@consultant-mail.example>",
+    "Return-Path": "<martin.keller@executive-mail.example>",
+    "To": "Accounts Payable <finance@soc-lab.example>",
+    "Date": "Fri, 21 Aug 2026 14:40:00 +0000",
+    "Message-ID": "<training-bec-003@mail.executive-mail.example>",
+    "Subject": "Confidential: urgent supplier payment today"
+  },
+  "authentication_results": [
+    "training-gateway.example;        spf=pass smtp.mailfrom=executive-mail.example;        dkim=pass header.d=executive-mail.example;        dmarc=pass header.from=executive-mail.example"
+  ],
+  "dkim_signature_present": false,
+  "urls": [],
+  "warnings": [
+    "Authentication-Results declares dkim=pass, but this sample contains no DKIM-Signature header; the result cannot be independently verified from the file."
+  ]
+}

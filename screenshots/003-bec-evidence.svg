@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
   <rect width="1200" height="675" fill="#0d1117"/>
   <rect x="42" y="38" width="1116" height="599" rx="22" fill="#161b22" stroke="#30363d" stroke-width="2"/>
-  <text x="78" y="92" fill="#58a6ff" font-family="Arial, sans-serif" font-size="24" font-weight="700">SIMULATED TRAINING EVIDENCE</text>
+  <text x="78" y="92" fill="#58a6ff" font-family="Arial, sans-serif" font-size="24" font-weight="700">SIMULATED CASE SUMMARY</text>
   <text x="78" y="138" fill="#f0f6fc" font-family="Arial, sans-serif" font-size="34" font-weight="700">Investigation 003 — Business Email Compromise</text>
   <rect x="942" y="72" width="156" height="42" rx="21" fill="#da3633"/>
   <text x="1020" y="100" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="20" font-weight="700">HIGH</text>
