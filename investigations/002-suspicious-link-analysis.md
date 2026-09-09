@@ -14,6 +14,8 @@ Analyze a simulated suspicious URL from a SOC perspective using safe, non-intera
 
 The sample uses only reserved `.example` domains and TEST-NET IP address ranges. No live malicious infrastructure is contacted.
 
+The extracted URL components, decoded parameters, supplied DNS mappings, and safety checks are reproducible in [`artifacts/002-suspicious-link-parsed.json`](../artifacts/002-suspicious-link-parsed.json) using [`tools/analyze_url_sample.py`](../tools/analyze_url_sample.py).
+
 ## Initial URL
 
 ```text

@@ -7,8 +7,8 @@ Three controlled phishing and Business Email Compromise (BEC) exercises built fr
 ## Start Here
 
 1. [Credential-phishing investigation](investigations/001-credential-phishing-analysis.md) and its [parsed email artifact](artifacts/001-credential-phishing-parsed.json).
-2. [BEC investigation](investigations/003-business-email-compromise.md) and its [parsed email artifact](artifacts/003-bec-parsed.json).
-3. [Suspicious-link investigation](investigations/002-suspicious-link-analysis.md).
+2. [Suspicious-link investigation](investigations/002-suspicious-link-analysis.md) and its [parsed URL artifact](artifacts/002-suspicious-link-parsed.json).
+3. [BEC investigation](investigations/003-business-email-compromise.md) and its [parsed email artifact](artifacts/003-bec-parsed.json).
 4. [Phishing response playbook](playbooks/phishing-response-playbook.md).
 
 ## Case Coverage
@@ -16,10 +16,12 @@ Three controlled phishing and Business Email Compromise (BEC) exercises built fr
 | Case | Analyst focus | Final lab classification | Committed material |
 |---|---|---|---|
 | 001 — Credential phishing | Sender/Reply-To/Return-Path comparison, declared authentication results, URL extraction, urgency and brand impersonation | Credential phishing simulation, Medium | [Report](investigations/001-credential-phishing-analysis.md) · [Sample](samples/001-credential-phishing-simulated.eml) · [Parsed JSON](artifacts/001-credential-phishing-parsed.json) · [IOCs](iocs/001-credential-phishing-iocs.md) |
-| 002 — Suspicious link | URL decomposition, encoded redirect, authentication-themed hostnames, and provided TEST-NET context | Credential-phishing link simulation, Medium | [Report](investigations/002-suspicious-link-analysis.md) · [Sample](samples/002-suspicious-link-simulated.txt) · [IOCs](iocs/002-suspicious-link-iocs.md) |
+| 002 — Suspicious link | URL decomposition, encoded redirect, authentication-themed hostnames, and provided TEST-NET context | Credential-phishing link simulation, Medium | [Report](investigations/002-suspicious-link-analysis.md) · [Sample](samples/002-suspicious-link-simulated.txt) · [Parsed JSON](artifacts/002-suspicious-link-parsed.json) · [IOCs](iocs/002-suspicious-link-iocs.md) |
 | 003 — BEC | Executive impersonation, Reply-To mismatch, payment urgency, verification-process bypass, and financial impact | BEC / executive-impersonation simulation, High | [Report](investigations/003-business-email-compromise.md) · [Sample](samples/003-bec-executive-impersonation-simulated.eml) · [Parsed JSON](artifacts/003-bec-parsed.json) · [IOCs](iocs/003-bec-executive-impersonation-iocs.md) |
 
-## Reproducible Email Parsing
+## Reproducible Parsing
+
+### Email samples
 
 [`tools/analyze_eml.py`](tools/analyze_eml.py) uses Python's standard-library email parser to extract review headers, `Authentication-Results`, the presence of a `DKIM-Signature`, and URLs from a committed `.eml` file.
 
@@ -28,7 +30,21 @@ python3 tools/analyze_eml.py samples/001-credential-phishing-simulated.eml
 python3 tools/analyze_eml.py samples/003-bec-executive-impersonation-simulated.eml
 ```
 
-The checked-in outputs are in [`artifacts/`](artifacts/README.md).
+### Suspicious-link sample
+
+[`tools/analyze_url_sample.py`](tools/analyze_url_sample.py) parses the initial and simulated redirect URLs, decodes query parameters, extracts the supplied DNS context, and confirms that the scenario uses `.example` hostnames and TEST-NET addresses.
+
+```bash
+python3 tools/analyze_url_sample.py samples/002-suspicious-link-simulated.txt
+```
+
+The checked-in outputs for all three cases are in [`artifacts/`](artifacts/README.md). Verify that every artifact still matches its source sample with:
+
+```bash
+python3 tools/verify_artifacts.py --check
+```
+
+GitHub Actions runs the same verification on every push and pull request.
 
 ### Authentication limitation in Case 003
 
@@ -66,10 +82,13 @@ Recommend containment, recovery, and escalation
 Phishing-Analysis-Lab/
 ├── README.md
 ├── tools/
-│   └── analyze_eml.py
+│   ├── analyze_eml.py
+│   ├── analyze_url_sample.py
+│   └── verify_artifacts.py
 ├── artifacts/
 │   ├── README.md
 │   ├── 001-credential-phishing-parsed.json
+│   ├── 002-suspicious-link-parsed.json
 │   └── 003-bec-parsed.json
 ├── investigations/
 │   ├── 001-credential-phishing-analysis.md
