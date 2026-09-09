@@ -1,6 +1,6 @@
 # IOC Documentation
 
-This directory will document **sanitized indicators of compromise (IOCs)** extracted during controlled phishing investigations.
+This directory contains **sanitized indicators of compromise (IOCs)** extracted from the controlled training samples.
 
 Possible indicator types include:
 

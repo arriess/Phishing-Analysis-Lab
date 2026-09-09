@@ -1,0 +1,40 @@
+{
+  "source_file": "002-suspicious-link-simulated.txt",
+  "initial_url": {
+    "url": "https://secure-sharepoint-login.example/auth?redirect=https%3A%2F%2Fm365-session-check.example%2Fsignin&user=employee%40soc-lab.example",
+    "scheme": "https",
+    "hostname": "secure-sharepoint-login.example",
+    "path": "/auth",
+    "query_parameters": {
+      "redirect": "https://m365-session-check.example/signin",
+      "user": "employee@soc-lab.example"
+    }
+  },
+  "simulated_redirect_destination": {
+    "url": "https://m365-session-check.example/signin?continue=%2Faccount%2Fverify&case=TRAINING-002",
+    "scheme": "https",
+    "hostname": "m365-session-check.example",
+    "path": "/signin",
+    "query_parameters": {
+      "case": "TRAINING-002",
+      "continue": "/account/verify"
+    }
+  },
+  "provided_dns_context": [
+    {
+      "hostname": "secure-sharepoint-login.example",
+      "address": "198.51.100.44",
+      "documentation_range": "TEST-NET-2"
+    },
+    {
+      "hostname": "m365-session-check.example",
+      "address": "203.0.113.25",
+      "documentation_range": "TEST-NET-3"
+    }
+  ],
+  "safety_checks": {
+    "all_dns_hostnames_use_example": true,
+    "all_addresses_use_test_net": true
+  },
+  "warnings": []
+}

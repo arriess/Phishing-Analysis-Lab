@@ -13,9 +13,9 @@
 | Source IP | `203.0.113.90` | TEST-NET-3 documentation address; not a real attack host |
 | Payment amount | `EUR 48,750` | Fictitious high-value payment request used to create financial urgency |
 | Payment reference | `PROJECT-ALPHA-003` | Synthetic transaction reference |
-| SPF result | `pass` | Demonstrates that a sender-controlled domain can authenticate successfully while the message remains malicious in intent |
-| DKIM result | `pass` | Authentication confirms domain control, not legitimacy of the claimed executive identity |
-| DMARC result | `pass` | Alignment alone does not rule out BEC or impersonation |
+| Declared SPF result | `pass` | Synthetic scenario input; not independently verified from reserved infrastructure |
+| Declared DKIM result | `pass` | The sample contains no `DKIM-Signature`, so this value cannot be cryptographically verified from the file |
+| Declared DMARC result | `pass` | Synthetic scenario input used to show that alignment alone would not rule out BEC or impersonation |
 
 ## Behavioral Indicators
 
@@ -30,4 +30,4 @@
 
 ## Safety Notes
 
-All names, organizations, domains, payment details, and infrastructure in this IOC set are fictitious or reserved for documentation. No live accounts, real bank details, or third-party infrastructure are involved.
+All names, organizations, domains, payment details, and infrastructure in this IOC set are fictitious or reserved for documentation. No live accounts, real bank details, or third-party infrastructure are involved. Authentication values are declared scenario data rather than independently validated mail-gateway results.

@@ -6,13 +6,15 @@
 
 ## Objective
 
-Analyze a simulated suspicious URL from a SOC perspective using safe, non-interactive methods. The investigation focuses on URL structure, domain context, redirect behavior, DNS observations, IOC extraction, analyst risk assessment, and response recommendations.
+Analyze a simulated suspicious URL from a SOC perspective using safe, non-interactive methods. The investigation focuses on URL structure, domain context, constructed redirect behavior, provided DNS context, IOC extraction, analyst risk assessment, and response recommendations.
 
 ## Sample
 
 [`samples/002-suspicious-link-simulated.txt`](../samples/002-suspicious-link-simulated.txt)
 
 The sample uses only reserved `.example` domains and TEST-NET IP address ranges. No live malicious infrastructure is contacted.
+
+The extracted URL components, decoded parameters, supplied DNS mappings, and safety checks are reproducible in [`artifacts/002-suspicious-link-parsed.json`](../artifacts/002-suspicious-link-parsed.json) using [`tools/analyze_url_sample.py`](../tools/analyze_url_sample.py).
 
 ## Initial URL
 
@@ -62,7 +64,9 @@ Indicators observed:
 
 This is consistent with a simulated credential-harvesting flow designed to keep the user inside a convincing login narrative.
 
-## DNS Context
+## Provided DNS Context
+
+The training sample assigns the following documentation-only addresses. These values were supplied as part of the scenario; they are not live DNS-query results.
 
 The lab uses documentation-only IP addresses:
 

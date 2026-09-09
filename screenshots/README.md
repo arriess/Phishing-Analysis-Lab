@@ -1,10 +1,10 @@
-# Screenshots & Evidence
+# Visual Case Summaries
 
-This directory contains **sanitized simulated training evidence** for the completed phishing investigations.
+This directory contains visual summaries of the three simulated phishing investigations.
 
-These visuals are portfolio summaries generated from the documented lab findings. They are **not production screenshots** and are clearly labeled `SIMULATED TRAINING EVIDENCE` to avoid misrepresenting synthetic exercises as real incident evidence.
+These SVG cards restate findings from the committed samples and reports. They are **not independent evidence of analysis-tool use or production screenshots** and are labeled `SIMULATED CASE SUMMARY` to avoid misrepresenting the exercises.
 
-## Evidence Cards
+## Case Cards
 
 - [`001-credential-phishing-evidence.svg`](001-credential-phishing-evidence.svg) — credential-phishing triage findings, authentication failures, suspicious URL, severity, and MITRE ATT&CK mapping.
 - [`002-suspicious-link-evidence.svg`](002-suspicious-link-evidence.svg) — suspicious URL structure, encoded redirect chain, DNS context, severity, and MITRE ATT&CK mapping.
@@ -23,4 +23,4 @@ Before publication, real-world screenshots must remove or obscure:
 - Live bank or payment details
 - Any unrelated personal or organizational data
 
-Evidence should demonstrate the analyst workflow and findings without exposing sensitive information or suggesting that a simulated scenario came from a real organization.
+Any future evidence should demonstrate the analyst workflow and findings without exposing sensitive information or suggesting that a simulated scenario came from a real organization.
